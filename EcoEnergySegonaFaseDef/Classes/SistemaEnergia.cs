@@ -1,4 +1,4 @@
-﻿namespace EcoEnergySegonaFaseDef
+﻿namespace EcoEnergySegonaFaseDef.Classes
 {
     public abstract class SistemaEnergia : ICalculEnergia
     {

@@ -1,0 +1,27 @@
+﻿
+@page
+@model EcoEnergySegonaFaseDef.Pages.SimulationsModel
+@{
+    ViewData["Title"] = "Llistat de simulacions";
+}
+
+<h1>Llista de simulacions</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hores de sol</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var energia in Model.sistemaSolars)
+        {
+            <tr>
+                <td>@energia.HoresSol</td>
+                <td>@energia.GetDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
