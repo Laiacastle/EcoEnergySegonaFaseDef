@@ -10,14 +10,14 @@ namespace EcoEnergySegonaFaseDef.Pages
         public List<SistemaSolar> sistemaSolars { get; set; } = new List<SistemaSolar>();
         public void OnGet()
         {
-            string filePath = "./Files/sistemesEnergias.csv";
+            string filePath = "./Pages/Files/simulations.csv";
             if (System.IO.File.Exists(filePath))
             {
                 var lines = System.IO.File.ReadAllLines(filePath);
                 foreach (var line in lines)
                 {
                     var parts = line.Split(',');
-                    if (parts.Length == 7)
+                    if (parts.Length == 2)
                     {
                         var sistema = new SistemaSolar
                         {
