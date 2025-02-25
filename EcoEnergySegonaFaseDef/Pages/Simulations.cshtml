@@ -10,8 +10,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Hores de sol</th>
+            <th>HoresSol</th>
             <th>Data</th>
+            <th>Result</th>
         </tr>
     </thead>
     <tbody>
@@ -20,8 +21,11 @@
             <tr>
                 <td>@energia.HoresSol</td>
                 <td>@energia.GetDate</td>
+                <td>@energia.CalcEnergia()</td>
+                <td>@energia.GetType()</td>
             </tr>
         }
     </tbody>
 </table>
 
+<a asp-page="AddSimulation" class="btn btn-primary">Afegir nova simulació</a>

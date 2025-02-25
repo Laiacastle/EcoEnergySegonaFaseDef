@@ -20,7 +20,11 @@ namespace EcoEnergySegonaFaseDef.Classes
         }
         public override string? ToString() => $"\t\t----------------------------------------------------------------------------\n\t\t| {Date.ToString()} |      {Type}      |       {HoresSol}          |     {CalcEnergia()}     |\n\t\t----------------------------------------------------------------------------";
         public override bool ConfParametre() => HoresSol >= 1;
-        public SistemaSolar() { }
+        public SistemaSolar() 
+        {
+            Date = DateTime.Now;
+            Type = "Solar";
+        }
         public SistemaSolar(double horesSol)
         {
             Date = DateTime.Now;

@@ -2,3 +2,19 @@
 @model EcoEnergySegonaFaseDef.Pages.AddSimulationModel
 @{
 }
+<h2>Afegir Simulació</h2>
+<form method="post">
+
+	<div class="form-group">
+		<label asp-for="Sistema.HoresSol"></label>
+		<input asp-for="Sistema.HoresSol" class="form-control" />
+		<span asp-validation-for="Sistema.HoresSol" class="text-danger"></span>
+	</div>
+	
+
+	<button type="submit" class="btn btn-primary">Afegir</button>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
