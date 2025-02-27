@@ -11,7 +11,7 @@ namespace EcoEnergySegonaFaseDef.Classes
     {
         private static int _contador = 0;
         public double CabalAigua { get; set; }
-        public override double CalcEnergia() => Math.Round(CabalAigua * 9.8 * 0.8);
+        public override double CalcEnergia() => Math.Round(CabalAigua * 9.8 * Rati);
         public override void MostraInforme()
         {
             Console.WriteLine($"\t\t-------------------------------------------------------------------------");
@@ -20,19 +20,36 @@ namespace EcoEnergySegonaFaseDef.Classes
         }
         public override string? ToString() => $"\t\t----------------------------------------------------------------------------\n\t\t| {Date.ToString()} | {Type}  |       {CabalAigua}          |     {CalcEnergia()}     |\n\t\t----------------------------------------------------------------------------";
         public override bool ConfParametre() => CabalAigua >= 20.0;
-        public SistemaHidroelectrica(double cabalAigua)
+        public SistemaHidroelectrica(double cabalAigua, double rati)
         {
             Date = DateTime.Now;
             Type = "Hidroelectrica";
             CabalAigua = cabalAigua;
+            Rati = rati;
             _contador++;
         }
-        public SistemaHidroelectrica(double cabalAigua, DateTime data)
+        public SistemaHidroelectrica(double cabalAigua, double rati, DateTime data)
         {
             Date = data;
             Type = "Hidoelectrica";
+            Rati = rati;
             CabalAigua = cabalAigua;
             _contador++;
+        }
+        public SistemaHidroelectrica() {
+            Date = DateTime.Now;
+            Type = "Hidroelectrica";
+            _contador++;
+        }
+
+        public DateTime GetDate => this.Date;
+
+        public override List<string> ToList()
+        {
+
+            List<string> list = base.ToList();
+            list.Add(this.CabalAigua.ToString());
+            return list;
         }
     }
 }

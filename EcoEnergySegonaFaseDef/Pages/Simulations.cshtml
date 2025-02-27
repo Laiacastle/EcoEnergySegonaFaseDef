@@ -10,19 +10,48 @@
 <table class="table">
     <thead>
         <tr>
-            <th>HoresSol</th>
+            <th>Hores de sol / Velocitat del vent / cabal d'aigua</th>
+            <th>Rati</th>
             <th>Data</th>
             <th>Result</th>
+            <th>Tipus de Simulació</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var energia in Model.sistemaSolars)
+        @foreach (var energia in Model.sistems)
         {
             <tr>
-                <td>@energia.HoresSol</td>
-                <td>@energia.GetDate</td>
-                <td>@energia.CalcEnergia()</td>
-                <td>@energia.GetType()</td>
+                @switch(energia.GetType()){
+                    case "Solar":
+                        Classes.SistemaSolar i = new Classes.SistemaSolar(Double.Parse(@energia.ToList()[^1]), @energia.Rati, @energia.GetDate);
+                            <td>@i.HoresSol</td>
+                            <td>@i.Rati</td>
+                            <td>@i.GetDate</td>
+                            <td>@i.CalcEnergia()</td>
+                            <td>@i.GetType()</td>
+                        
+                   ; break;
+                    case "Eolica":
+                        Classes.SistemaEolica j = new Classes.SistemaEolica(Double.Parse(@energia.ToList()[^1]), @energia.Rati, @energia.GetDate);
+                            <td>@j.VelocitatVent</td>
+                            <td>@j.Rati</td>
+                            <td>@j.GetDate</td>
+                            <td>@j.CalcEnergia()</td>
+                            <td>@j.GetType()</td>
+                        
+                    ; break;
+                    case "Hidroelectrica":
+                        Classes.SistemaHidroelectrica x = new Classes.SistemaHidroelectrica(Double.Parse(@energia.ToList()[^1]), @energia.Rati, @energia.GetDate);
+                            <td>@x.CabalAigua</td>
+                            <td>@x.Rati</td>
+                            <td>@x.GetDate</td>
+                            <td>@x.CalcEnergia()</td>
+                            <td>@x.GetType()</td>
+                        
+                    ; break;
+                   default: break;
+               }
+                
             </tr>
         }
     </tbody>

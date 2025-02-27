@@ -29,7 +29,12 @@ namespace EcoEnergySegonaFaseDef.Classes
         /// <returns>no retorna res</returns>
         void MostraInforme();
 
-
+        /// <summary>
+        ///  Mira la data
+        /// </summary>
+        /// <param>No parametres</param>
+        /// <returns>retorna la data</returns>
+        List<string> ToList();
 
     }
 }

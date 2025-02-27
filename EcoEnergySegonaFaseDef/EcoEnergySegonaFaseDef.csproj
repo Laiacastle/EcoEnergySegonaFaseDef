@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Files\BaseFiles\" />
+    <Folder Include="wwwroot\BaseFiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\BaseFiles\image.png" />
+    <None Include="wwwroot\BaseFiles\indicadors_energetics_cat.csv" />
+    <None Include="wwwroot\BaseFiles\logo.jpg" />
+    <None Include="wwwroot\BaseFiles\practica-banner.png" />
   </ItemGroup>
 
 </Project>
