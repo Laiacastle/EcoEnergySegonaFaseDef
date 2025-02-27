@@ -2,14 +2,49 @@
 @model EcoEnergySegonaFaseDef.Pages.AddSimulationModel
 @{
 }
+
 <h2>Afegir Simulació</h2>
 <form method="post">
 
-	<div class="form-group">
-		<label asp-for="Sistema.HoresSol"></label>
-		<input asp-for="Sistema.HoresSol" class="form-control" />
-		<span asp-validation-for="Sistema.HoresSol" class="text-danger"></span>
-	</div>
+	@switch (AddSimulationModel.typeOfSimulation)
+	{
+		case "Solar": 
+			<div class="form-group">
+				<label asp-for="solar.HoresSol"></label>
+				<input asp-for="solar.HoresSol" class="form-control" />
+				<span asp-validation-for="solar.HoresSol" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="solar.Rati"></label>
+				<input asp-for="solar.Rati" class="form-control" />
+				<span asp-validation-for="solar.Rati" class="text-danger"></span>
+			</div>
+			; break;
+		case "Eolica":
+			<div class="form-group">
+				<label asp-for="eolica.VelocitatVent"></label>
+				<input asp-for="eolica.VelocitatVent" class="form-control" />
+				<span asp-validation-for="eolica.VelocitatVent" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="eolica.Rati"></label>
+				<input asp-for="eolica.Rati" class="form-control" />
+				<span asp-validation-for="eolica.Rati" class="text-danger"></span>
+			</div>
+			; break;
+		default:
+			<div class="form-group">
+				<label asp-for="hidro.CabalAigua"></label>
+				<input asp-for="hidro.CabalAigua" class="form-control" />
+				<span asp-validation-for="hidro.CabalAigua" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="hidro.Rati"></label>
+				<input asp-for="hidro.Rati" class="form-control" />
+				<span asp-validation-for="hidro.Rati" class="text-danger"></span>
+			</div>
+			; break;
+	}
 	
 
 	<button type="submit" class="btn btn-primary">Afegir</button>

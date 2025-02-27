@@ -11,7 +11,7 @@ namespace EcoEnergySegonaFaseDef.Classes
     {
         private static int _contador = 0;
         public double HoresSol { get; set; }
-        public override double CalcEnergia() => Math.Round(HoresSol * 1.5);
+        public override double CalcEnergia() => Math.Round(HoresSol * Rati);
         public override void MostraInforme()
         {
             Console.WriteLine($"\t\t-------------------------------------------------------------------------");
@@ -20,25 +20,35 @@ namespace EcoEnergySegonaFaseDef.Classes
         }
         public override string? ToString() => $"\t\t----------------------------------------------------------------------------\n\t\t| {Date.ToString()} |      {Type}      |       {HoresSol}          |     {CalcEnergia()}     |\n\t\t----------------------------------------------------------------------------";
         public override bool ConfParametre() => HoresSol >= 1;
-        public SistemaSolar() 
+        public SistemaSolar()
         {
             Date = DateTime.Now;
             Type = "Solar";
+            _contador++;
         }
-        public SistemaSolar(double horesSol)
+        public SistemaSolar(double horesSol, double rati)
         {
             Date = DateTime.Now;
             Type = "Solar";
             HoresSol = horesSol;
+            Rati = rati;
             _contador++;
         }
         public DateTime GetDate => this.Date;
-        public SistemaSolar(double horesSol, DateTime data)
+        public SistemaSolar(double horesSol, double rati, DateTime data)
         {
             Date = data;
+            Rati= rati;
             Type = "Solar";
             HoresSol = horesSol;
             _contador++;
+        }
+        public override List<string> ToList()
+        {
+
+            List<string> list = base.ToList();
+            list.Add(this.HoresSol.ToString());
+            return list;
         }
     }
 }

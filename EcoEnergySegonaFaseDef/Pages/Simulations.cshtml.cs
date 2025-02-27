@@ -1,13 +1,18 @@
 using EcoEnergySegonaFaseDef.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EcoEnergySegonaFaseDef.Pages
 {
     public class SimulationsModel : PageModel
     {
-        public List<SistemaSolar> sistemaSolars { get; set; } = new List<SistemaSolar>();
+        public List<SistemaEnergia> sistems { get; set; } = new List<SistemaEnergia>();
+        public List<SistemaSolar> solaris { get; set; } = new List<SistemaSolar>();
+        public List<SistemaEolica> eolics { get; set; } = new List<SistemaEolica>();
+        public List<SistemaHidroelectrica> hidros { get; set; } = new List<SistemaHidroelectrica>();
+
         public void OnGet()
         {
             string filePath = "./Pages/Files/simulations.csv";
@@ -19,11 +24,40 @@ namespace EcoEnergySegonaFaseDef.Pages
                     var parts = line.Split(',');
                     if (parts.Length == 2)
                     {
-                        var sistema = new SistemaSolar
+                        
+                        switch (parts[2])
                         {
-                            HoresSol = Double.Parse(parts[0])
-                        };
-                        sistemaSolars.Add(sistema);
+                            case "Solar": var solar = new SistemaSolar
+                            {
+                                HoresSol = Double.Parse(parts[0]),
+                                Rati = Double.Parse(parts[1])
+                            };
+                                sistems.Add(solar);
+                                solaris.Add(solar); 
+                                break;
+
+                            case "Eolica": var eolica = new SistemaEolica
+                            {
+                                VelocitatVent = Double.Parse(parts[0]),
+                                Rati = Double.Parse(parts[1])
+                            };
+                                sistems.Add(eolica);
+                                eolics.Add(eolica); 
+                                break;
+
+                            default: var hidro = new SistemaHidroelectrica
+                            {
+                                CabalAigua = Double.Parse(parts[0]),
+                                Rati = Double.Parse(parts[1])
+                            };
+                                sistems.Add(hidro);
+                                hidros.Add(hidro); 
+                                break;
+                            
+                        }
+                         
+                        
+                        
                     }
                 }
             }

@@ -11,7 +11,7 @@ namespace EcoEnergySegonaFaseDef.Classes
     {
         private static int _contador = 0;
         public double VelocitatVent { get; set; }
-        public override double CalcEnergia() => Math.Round(Math.Pow(VelocitatVent, 3) * 0.2);
+        public override double CalcEnergia() => Math.Round(Math.Pow(VelocitatVent, 3) * Rati);
         public override void MostraInforme()
         {
             Console.WriteLine($"\t\t-------------------------------------------------------------------------");
@@ -21,19 +21,36 @@ namespace EcoEnergySegonaFaseDef.Classes
         public override string? ToString() => $"\t\t----------------------------------------------------------------------------\n\t\t| {Date.ToString()} |      {Type}     |       {VelocitatVent}          |     {CalcEnergia()}     |\n\t\t----------------------------------------------------------------------------";
         public override bool ConfParametre() => VelocitatVent >= 5.0;
 
-        public SistemaEolica(double velocitatVent)
+        public SistemaEolica(double velocitatVent, double rati)
         {
             Date = DateTime.Now;
             Type = "Eolica";
             VelocitatVent = velocitatVent;
+            Rati = rati;
             _contador++;
         }
-        public SistemaEolica(double velocitatVent, DateTime data)
+        public SistemaEolica() {
+            Date = DateTime.Now;
+            Type = "Eolica";
+            _contador++;
+        }
+        public SistemaEolica(double velocitatVent, double rati, DateTime data)
         {
             Date = data;
             Type = "Eolica";
             VelocitatVent = velocitatVent;
+            Rati= rati;
             _contador++;
+        }
+
+        public DateTime GetDate => this.Date;
+
+        public override List<string> ToList()
+        {
+
+            List<string> list = base.ToList();
+            list.Add(this.VelocitatVent.ToString());
+            return list;
         }
 
     }
