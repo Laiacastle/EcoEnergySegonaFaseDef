@@ -1,0 +1,38 @@
+﻿@page
+@model EcoEnergySegonaFaseDef.Pages.WaterConsumption.WaterConsumesModel
+@{
+}
+<h1>Llista de consums</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Any</th>
+            <th>Codi de distrit</th>
+            <th>Població</th>
+            <th>Domini de xarxa</th>
+            <th>Activitats económiques</th>
+            <th>Fonts propies</th>
+            <th>Total</th>
+            <th>Consum domestic per capità</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var consum in Model.consums)
+        {
+            <tr>
+                <td>@consum.Year</td>
+                <td>@consum.CodeDistrict</td>
+                <td>@consum.District</td>
+                <td>@consum.Poblation</td>
+                <td>@consum.Network</td>
+                <td>@consum.FontsAndEcoActivities</td>
+                <td>@consum.Total</td>
+                <td>@consum.Consumption</td>
+                 
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="AddConsume" class="btn btn-primary">Afegir nova simulació</a>
