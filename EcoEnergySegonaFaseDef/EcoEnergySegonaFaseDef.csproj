@@ -7,14 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\BaseFiles\" />
+    <None Include="wwwroot\images\image.png" />
+    <None Include="wwwroot\BaseFiles\indicadors_energetics_cat.csv" />
+    <None Include="wwwroot\images\logo.jpg" />
+    <None Include="wwwroot\images\practica-banner.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\BaseFiles\image.png" />
-    <None Include="wwwroot\BaseFiles\indicadors_energetics_cat.csv" />
-    <None Include="wwwroot\BaseFiles\logo.jpg" />
-    <None Include="wwwroot\BaseFiles\practica-banner.png" />
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
   </ItemGroup>
 
 </Project>

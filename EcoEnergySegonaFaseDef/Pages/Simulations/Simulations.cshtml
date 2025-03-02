@@ -1,6 +1,6 @@
 ﻿
 @page
-@model EcoEnergySegonaFaseDef.Pages.SimulationsModel
+@model SimulationsModel
 @{
     ViewData["Title"] = "Llistat de simulacions";
 }
@@ -29,7 +29,6 @@
                             <td>@i.GetDate</td>
                             <td>@i.CalcEnergia()</td>
                             <td>@i.GetType()</td>
-                        
                    ; break;
                     case "Eolica":
                         Classes.SistemaEolica j = new Classes.SistemaEolica(Double.Parse(@energia.ToList()[^1]), @energia.Rati, @energia.GetDate);

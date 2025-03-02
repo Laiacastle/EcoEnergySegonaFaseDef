@@ -1,0 +1,56 @@
+﻿@page
+@model EcoEnergySegonaFaseDef.Pages.WaterConsumption.AddConsumeModel
+@{
+}
+<h2>Afegir Simulació</h2>
+<form method="post">
+
+			<div class="form-group">
+				<label asp-for="consum.Year"></label>
+				<input asp-for="consum.Year" class="form-control" />
+				<span asp-validation-for="consum.Year" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="consum.CodeDistrict"></label>
+				<input asp-for="consum.CodeDistrict" class="form-control" />
+				<span asp-validation-for="consum.CodeDistrict" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="consum.District"></label>
+				<input asp-for="consum.District" class="form-control" />
+				<span asp-validation-for="consum.District" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="consum.Poblation"></label>
+				<input asp-for="consum.Poblation" class="form-control" />
+				<span asp-validation-for="consum.Poblation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="consum.Network"></label>
+				<input asp-for="consum.Network" class="form-control" />
+				<span asp-validation-for="consum.Network" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="consum.FontsAndEcoActivities"></label>
+				<input asp-for="consum.FontsAndEcoActivities" class="form-control" />
+				<span asp-validation-for="consum.FontsAndEcoActivities" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="consum.Consumption"></label>
+				<input asp-for="consum.Consumption" class="form-control" />
+				<span asp-validation-for="consum.Consumption" class="text-danger"></span>
+			</div>
+	<div class="form-group">
+		<label asp-for="consum.Total"></label>
+		<input asp-for="consum.Total" class="form-control" />
+		<span asp-validation-for="consum.Total" class="text-danger"></span>
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Afegir</button>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
