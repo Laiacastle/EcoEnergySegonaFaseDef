@@ -1,17 +1,17 @@
 using EcoEnergySegonaFaseDef.Classes;
+using EcoEnergySegonaFaseDef.Pages.Simulations;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using CsvHelper;
 
 namespace EcoEnergySegonaFaseDef.Pages.Simulations
 {
     public class SimulationsModel : PageModel
     {
-        public List<SistemaEnergia> sistems { get; set; } = new List<SistemaEnergia>();
-        public List<SistemaSolar> solaris { get; set; } = new List<SistemaSolar>();
-        public List<SistemaEolica> eolics { get; set; } = new List<SistemaEolica>();
-        public List<SistemaHidroelectrica> hidros { get; set; } = new List<SistemaHidroelectrica>();
+        public List<Simulation> sistems { get; set; } = new List<Simulation>();
 
         public void OnGet()
         {
@@ -19,51 +19,15 @@ namespace EcoEnergySegonaFaseDef.Pages.Simulations
             if (System.IO.File.Exists(filePath))
             {
                 var lines = System.IO.File.ReadAllLines(filePath);
-                foreach (var line in lines)
-                {
-                    var parts = line.Split(',');
-                    if (parts.Length == 2)
+                    foreach (var line in lines)
                     {
-
-                        switch (parts[2])
+                        using (var reader = new StreamReader(filePath))
+                        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                         {
-                            case "Solar":
-                                var solar = new SistemaSolar
-                                {
-                                    HoresSol = double.Parse(parts[0]),
-                                    Rati = double.Parse(parts[1])
-                                };
-                                sistems.Add(solar);
-                                solaris.Add(solar);
-                                break;
-
-                            case "Eolica":
-                                var eolica = new SistemaEolica
-                                {
-                                    VelocitatVent = double.Parse(parts[0]),
-                                    Rati = double.Parse(parts[1])
-                                };
-                                sistems.Add(eolica);
-                                eolics.Add(eolica);
-                                break;
-
-                            default:
-                                var hidro = new SistemaHidroelectrica
-                                {
-                                    CabalAigua = double.Parse(parts[0]),
-                                    Rati = double.Parse(parts[1])
-                                };
-                                sistems.Add(hidro);
-                                hidros.Add(hidro);
-                                break;
-
+                            sistems = csv.GetRecords<Simulation>().ToList();
                         }
-
-
-
                     }
                 }
             }
         }
     }
-}

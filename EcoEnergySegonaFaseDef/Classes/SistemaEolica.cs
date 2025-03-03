@@ -21,23 +21,25 @@ namespace EcoEnergySegonaFaseDef.Classes
         public override string? ToString() => $"\t\t----------------------------------------------------------------------------\n\t\t| {Date.ToString()} |      {Type}     |       {VelocitatVent}          |     {CalcEnergia()}     |\n\t\t----------------------------------------------------------------------------";
         public override bool ConfParametre() => VelocitatVent >= 5.0;
 
-        public SistemaEolica(double velocitatVent, double rati)
+        public SistemaEolica(double velocitatVent, double rati, double preu, double cost)
         {
+            Preu = preu;
+            Cost = cost;
             Date = DateTime.Now;
-            Type = "Eolica";
+            Type = Sistemes.Eolica;
             VelocitatVent = velocitatVent;
             Rati = rati;
             _contador++;
         }
         public SistemaEolica() {
             Date = DateTime.Now;
-            Type = "Eolica";
+            Type = Sistemes.Eolica;
             _contador++;
         }
         public SistemaEolica(double velocitatVent, double rati, DateTime data)
         {
             Date = data;
-            Type = "Eolica";
+            Type = Sistemes.Eolica;
             VelocitatVent = velocitatVent;
             Rati= rati;
             _contador++;

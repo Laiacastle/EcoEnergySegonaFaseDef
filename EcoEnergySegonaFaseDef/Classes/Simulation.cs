@@ -1,0 +1,30 @@
+﻿namespace EcoEnergySegonaFaseDef.Classes
+{
+    public class Simulation: SistemaEnergia, ICalculEnergia
+    {
+        public double Value { get; set; }
+        public string? Type { get; set; }
+        public double CalcEnergia()
+        {
+            double result = 0;
+            switch (this.Type)
+            {
+                case "Solar": result = this.Value * this.Rati; break;
+                case "Eolica": result = Math.Pow(this.Value, 3) * this.Rati; break;
+                case "Hidroelectrica": result = this.Value * 9.8 * this.Rati; break;
+            }
+            return result;
+        }
+        public Simulation(double value, double rati, double preu, double cost,  DateTime date,string type)
+        {
+            Type = type;
+            Preu = preu;
+            Cost = cost;
+            Value = value;
+            Rati = rati;
+            Date = date;
+            
+        }
+        public Simulation() { }
+    }
+}
