@@ -23,13 +23,15 @@ namespace EcoEnergySegonaFaseDef.Classes
         public SistemaSolar()
         {
             Date = DateTime.Now;
-            Type = "Solar";
+            Type = Sistemes.Solar;
             _contador++;
         }
-        public SistemaSolar(double horesSol, double rati)
+        public SistemaSolar(double horesSol, double rati, double preu, double cost)
         {
+            Preu = preu;
+            Cost = cost;
             Date = DateTime.Now;
-            Type = "Solar";
+            Type = Sistemes.Solar;
             HoresSol = horesSol;
             Rati = rati;
             _contador++;
@@ -39,7 +41,7 @@ namespace EcoEnergySegonaFaseDef.Classes
         {
             Date = data;
             Rati= rati;
-            Type = "Solar";
+            Type = Sistemes.Solar;
             HoresSol = horesSol;
             _contador++;
         }

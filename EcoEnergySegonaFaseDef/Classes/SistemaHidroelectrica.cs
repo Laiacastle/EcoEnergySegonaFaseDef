@@ -20,10 +20,12 @@ namespace EcoEnergySegonaFaseDef.Classes
         }
         public override string? ToString() => $"\t\t----------------------------------------------------------------------------\n\t\t| {Date.ToString()} | {Type}  |       {CabalAigua}          |     {CalcEnergia()}     |\n\t\t----------------------------------------------------------------------------";
         public override bool ConfParametre() => CabalAigua >= 20.0;
-        public SistemaHidroelectrica(double cabalAigua, double rati)
+        public SistemaHidroelectrica(double cabalAigua, double rati, double preu, double cost)
         {
+            Preu = preu;
+            Cost = cost;
             Date = DateTime.Now;
-            Type = "Hidroelectrica";
+            Type = Sistemes.Hidroelectrica;
             CabalAigua = cabalAigua;
             Rati = rati;
             _contador++;
@@ -31,14 +33,14 @@ namespace EcoEnergySegonaFaseDef.Classes
         public SistemaHidroelectrica(double cabalAigua, double rati, DateTime data)
         {
             Date = data;
-            Type = "Hidoelectrica";
+            Type = Sistemes.Hidroelectrica;
             Rati = rati;
             CabalAigua = cabalAigua;
             _contador++;
         }
         public SistemaHidroelectrica() {
             Date = DateTime.Now;
-            Type = "Hidroelectrica";
+            Type = Sistemes.Hidroelectrica;
             _contador++;
         }
 

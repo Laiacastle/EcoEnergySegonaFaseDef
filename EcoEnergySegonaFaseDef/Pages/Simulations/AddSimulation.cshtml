@@ -1,55 +1,103 @@
 ﻿@page
-@model EcoEnergySegonaFaseDef.Pages.AddSimulationModel
+@model EcoEnergySegonaFaseDef.Pages.Simulations.AddSimulationModel
+
 @{
+    ViewData["Title"] = "Afegir Simulacio";
 }
+<h2>Afegir Simulacio</h2>
 
-<h2>Afegir Simulació</h2>
 <form method="post">
+    <div class="form-group">
+        <label for="TipusEnergia">Tipus d'Energia</label>
+        <select asp-for="sistema.Type" class="form-control" id="tipusEnergia">
+            <option value="">Selecciona el tipus d'energia</option>
+            <option value="Solar">Solar</option>
+            <option value="Hidroelectrica">Hidroeléctrica</option>
+            <option value="Eolica">Eólica</option>
+        </select>
+    </div>
 
-	@switch (AddSimulationModel.typeOfSimulation)
-	{
-		case "Solar": 
-			<div class="form-group">
-				<label asp-for="solar.HoresSol"></label>
-				<input asp-for="solar.HoresSol" class="form-control" />
-				<span asp-validation-for="solar.HoresSol" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="solar.Rati"></label>
-				<input asp-for="solar.Rati" class="form-control" />
-				<span asp-validation-for="solar.Rati" class="text-danger"></span>
-			</div>
-			; break;
-		case "Eolica":
-			<div class="form-group">
-				<label asp-for="eolica.VelocitatVent"></label>
-				<input asp-for="eolica.VelocitatVent" class="form-control" />
-				<span asp-validation-for="eolica.VelocitatVent" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="eolica.Rati"></label>
-				<input asp-for="eolica.Rati" class="form-control" />
-				<span asp-validation-for="eolica.Rati" class="text-danger"></span>
-			</div>
-			; break;
-		default:
-			<div class="form-group">
-				<label asp-for="hidro.CabalAigua"></label>
-				<input asp-for="hidro.CabalAigua" class="form-control" />
-				<span asp-validation-for="hidro.CabalAigua" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="hidro.Rati"></label>
-				<input asp-for="hidro.Rati" class="form-control" />
-				<span asp-validation-for="hidro.Rati" class="text-danger"></span>
-			</div>
-			; break;
-	}
-	
+    <div id="energiaFields"></div>
 
-	<button type="submit" class="btn btn-primary">Afegir</button>
+    <div class="form-group">
+        <label asp-for="sistema.Rati">Rati</label>
+        <input asp-for="sistema.Rati" class="form-control" />
+        <span asp-validation-for="sistema.Rati" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sistema.Cost">Cost</label>
+        <input asp-for="sistema.Cost" class="form-control" />
+        <span asp-validation-for="sistema.Cost" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="sistema.Preu">Preu</label>
+        <input asp-for="sistema.Preu" class="form-control" />
+        <span asp-validation-for="sistema.Preu" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Afegir</button>
 </form>
 
 @section Scripts {
-	<partial name="_ValidationScriptsPartial" />
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            document.getElementById("tipusEnergia").addEventListener("change", function() {
+                let energiaFields = document.getElementById("energiaFields");
+                energiaFields.innerHTML = "";
+                switch (this.value) {
+                    case "Solar":
+                        energiaFields.innerHTML = `
+                            <div class="form-group">
+                                <label for="solar.HoresSol">Hores Sol</label>
+                                <input type="number" name="solar.HoresSol" class="form-control" id="HoresSol"/>
+                                <span class="text-danger" data-valmsg-for="solar.HoresSol"></span>
+                            </div>
+                        `;
+                        Validate("HoresSol", 1, "Les hores de sol han de ser majors a 1")
+                        break;
+                    case "Hidroelectrica":
+                        energiaFields.innerHTML = `
+                            <div class="form-group">
+                                <label for="hidro.CabalAigua">Cabal Aigua</label>
+                                <input type="number" name="hidro.CabalAigua" class="form-control" id="CabalAigua" />
+                                <span class="text-danger" data-valmsg-for="hidro.CabalAigua"></span>
+                            </div>
+                        `;
+                        Validate("CabalAigua", 20, "El cabal d'aigua ha de ser major a 19")
+                        break;
+                    case "Eolica":
+                        energiaFields.innerHTML = `
+                            <div class="form-group">
+                                <label for="eolica.VelocitatVent">Velocitat Vent</label>
+                                <input type="number" name="eolica.VelocitatVent" class="form-control" id="VelocitatVent" />
+                                <span class="text-danger" data-valmsg-for="eolica.VelocitatVent"></span>
+                            </div>
+                        `;
+                        Validate("VelocitatVent", 5, "La velocitat del vent ha de ser major a 5")
+                        break;
+                }
+
+            });
+
+            function Validate(inputId, minValue, errorMessage) {
+            const fieldInput = document.getElementById(inputId);
+            const errorSpan = fieldInput.nextElementSibling;
+
+            fieldInput.addEventListener("input", function() {
+                const value = parseFloat(this.value);
+                if (value <= minValue) {
+                    errorSpan.textContent = errorMessage;
+                    errorSpan.style.display = "block";
+                } else {
+                    errorSpan.textContent = "";
+                    errorSpan.style.display = "none";
+                }
+            });
+        }
+	</script>
 }
+
+
+	
