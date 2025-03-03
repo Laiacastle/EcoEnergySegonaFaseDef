@@ -11,7 +11,7 @@ namespace EcoEnergySegonaFaseDef.Pages.WaterConsumption
         public List<ConsumAigua> consums = new List<ConsumAigua>();
         public void OnGet()
         {
-            string filePath = "./BaseFiles/consum_aigua_cat_per_comarques.csv";
+            string filePath = "./wwwroot/BaseFiles/consum_aigua_cat_per_comarques.csv";
             if (System.IO.File.Exists(filePath))
             {
                 var lines = System.IO.File.ReadAllLines(filePath);
