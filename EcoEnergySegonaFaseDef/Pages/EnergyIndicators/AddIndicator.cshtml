@@ -1,0 +1,39 @@
+﻿@page
+@model EcoEnergySegonaFaseDef.Pages.EnergyIndicators.AddIndicatorModel
+@{
+	ViewData["Title"] = "Afegir Indicador Energetic";
+}
+<h2>Afegir Simulacio</h2>
+
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="indicator.Data">Date</label>
+        <input asp-for="indicator.Data" class="form-control" />
+        <span asp-validation-for="indicator.Data" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="indicator.CDEEBC_ProdNeta">CDEEBC_ProdNeta</label>
+        <input asp-for="indicator.CDEEBC_ProdNeta" class="form-control" />
+        <span asp-validation-for="indicator.CDEEBC_ProdNeta" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="indicator.CDEEBC_ProdDisp">CDEEBC_ProdDisp</label>
+        <input asp-for="indicator.CDEEBC_ProdDisp" class="form-control" />
+        <span asp-validation-for="indicator.CDEEBC_ProdDisp" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="indicator.CDEEBC_DemandaElectr">CDEEBC_DemandaElectr</label>
+        <input asp-for="indicator.CDEEBC_DemandaElectr" class="form-control" />
+        <span asp-validation-for="indicator.CDEEBC_DemandaElectr" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="indicator.CCAC_GasolinaAuto">CCAC_GasolinaAuto</label>
+        <input asp-for="indicator.CCAC_GasolinaAuto" class="form-control" />
+        <span asp-validation-for="indicator.CCAC_GasolinaAuto" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Afegir</button>
+</form>

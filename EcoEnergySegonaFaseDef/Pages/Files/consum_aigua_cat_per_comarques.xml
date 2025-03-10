@@ -40,4 +40,14 @@
     <Total>1</Total>
     <Consum_domestic_per_capità>1</Consum_domestic_per_capità>
   </consum>
+  <consum>
+    <Any>2003</Any>
+    <Codi_de_distrit>1</Codi_de_distrit>
+    <Distrit>1</Distrit>
+    <Població>1</Població>
+    <Domini_de_xarxa>1</Domini_de_xarxa>
+    <Fonts_propies>1</Fonts_propies>
+    <Total>1</Total>
+    <Consum_domestic_per_capità>2222222</Consum_domestic_per_capità>
+  </consum>
 </Consums>
