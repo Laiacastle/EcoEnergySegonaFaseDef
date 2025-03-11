@@ -21,19 +21,8 @@ namespace EcoEnergySegonaFaseDef.Classes
         public double CDEEBC_ConsumBomb { get; set; }
         public double CDEEBC_TotVendesXarxaCentral { get; set; }
         public double CDEEBC_SaldoIntercanviElectr { get; set; }
-
-        private string _totalMercatRegulat;
-        public double CDEEBC_TotalEBCMercatRegulat
-        {
-            get => double.TryParse(_totalMercatRegulat?.Replace("%", ""), out double value) ? value : 0.0;
-            set => _totalMercatRegulat = value.ToString();
-        }
-        private string _totalMercatLliure;
-        public double CDEEBC_TotalEBCMercatLliure
-        {
-            get => double.TryParse(_totalMercatLliure?.Replace("%", ""), out double value) ? value : 0.0;
-            set => _totalMercatLliure = value.ToString();
-        }
+        public string? CDEEBC_TotalEBCMercatRegulat { get; set; }
+        public string? CDEEBC_TotalEBCMercatLliure  { get; set; }
         public double FEE_Industria { get; set; }
         public double FEE_Terciari { get; set; }
         public double FEE_Domestic { get; set; }
@@ -49,7 +38,7 @@ namespace EcoEnergySegonaFaseDef.Classes
         public double FEEI_ConstrMedTrans { get; set; }
         public double FEEI_RestaTransforMetal { get; set; }
         public double FEEI_AlimBegudaTabac { get; set; }
-        public double FEEI_TextilConfecCuirCalçat { get; set; }
+        public double FEEI_TextilConfecCuirCalcat { get; set; }
         public double FEEI_PastaPaperCartro { get; set; }
         public double FEEI_AltresIndus { get; set; }
         public double DGGN_PuntFrontEnagas { get; set; }
@@ -74,8 +63,8 @@ namespace EcoEnergySegonaFaseDef.Classes
             CDEEBC_ConsumBomb = 2;
             CDEEBC_TotVendesXarxaCentral = 2;
             CDEEBC_SaldoIntercanviElectr = 2;
-            CDEEBC_TotalEBCMercatRegulat = Percentage("2%");
-            CDEEBC_TotalEBCMercatLliure = Percentage("2%");
+            CDEEBC_TotalEBCMercatRegulat = "2%";
+            CDEEBC_TotalEBCMercatLliure = "2%";
             FEE_Industria = 2;
             FEE_Terciari = 2;
             FEE_Domestic = 2;
@@ -91,7 +80,7 @@ namespace EcoEnergySegonaFaseDef.Classes
             FEEI_ConstrMedTrans = 2;
             FEEI_RestaTransforMetal = 2;
             FEEI_AlimBegudaTabac = 2;
-            FEEI_TextilConfecCuirCalçat = 2;
+            FEEI_TextilConfecCuirCalcat = 2;
             FEEI_PastaPaperCartro = 2;
             FEEI_AltresIndus = 2;
             DGGN_PuntFrontEnagas = 2;
@@ -102,9 +91,6 @@ namespace EcoEnergySegonaFaseDef.Classes
 
         public IndicadorsEnergetics() { }
 
-        public double Percentage(string percen)
-        {
-            return double.TryParse(percen.Replace("%", ""), out double value) ? value : 0.0;
-        }
+        
     }
 }

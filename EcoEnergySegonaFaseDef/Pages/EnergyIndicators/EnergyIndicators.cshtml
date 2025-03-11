@@ -4,28 +4,130 @@
 }
 <h1>Llista de consums</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Data</th>
-            <th>CDEEBC_ProdNeta</th>
-            <th>CDEEBC_ProdDisp</th>
-            <th>CDEEBC_DemandaElectr</th>
-            <th>CCAC_GasolinaAuto</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var consum in Model.indicators)
-        {
-            <tr>
-                <td>@consum.Data</td>
-                <td>@consum.CDEEBC_ProdNeta</td>
-                <td>@consum.CDEEBC_ProdDisp</td>
-                <td>@consum.CDEEBC_DemandaElectr</td>
-                <td>@consum.CCAC_GasolinaAuto</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="normal-group">
+    <label for="Informes">Informes</label>
+    <select id="Informe">
+        <option value="">Selecciona quines dades vols veure</option>
+        <option value="ProduccioSuperior3000">Registres amb produccio neta superior a 3000</option>
+        <option value="ConsumGasolinaSuperior100">Registres amb consum de gasolina superior a 100</option>
+        <option value="MitjanaProduccioNeta">Mitjana de produccio neta pero any</option>
+        <option value="DemandaSuperior4000">Registres amb demanda electrica superior a 4000</option>
+    </select>
+</div>
 
-<a asp-page="AddConsume" class="btn btn-primary">Afegir nova simulació</a>
+<div id="informeFields"></div>
+
+<a asp-page="AddIndicator" class="btn btn-primary">Afegir nou indicador</a>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById("Informe").addEventListener("change", function() {
+            let informeFields = document.getElementById("informeFields");
+            informeFields.innerHTML = "";
+            switch (this.value) {
+        case "ProduccioSuperior3000":
+                    informeFields.innerHTML = `
+                        <table class"table">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Produccio neta</th>
+                                        <th>Produccio disponible</th>
+                                        <th>Demanda electrica</th>
+                                        <th>Consum gasolina</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        @foreach (var consum in Model.produccioNetaSupTres)
+                        {
+                                <tr>
+                                    <td>@consum.Data</td>
+                                    <td>@consum.CDEEBC_ProdNeta</td>
+                                    <td>@consum.CDEEBC_ProdDisp</td>
+                                    <td>@consum.CDEEBC_DemandaElectr</td>
+                                    <td>@consum.CCAC_GasolinaAuto</td>
+                                </tr>
+                        }
+                            </tbody>
+                        </table>
+                    `;
+                    break;
+             case "ConsumGasolinaSuperior100":
+                  informeFields.innerHTML = `
+                       <table class"table">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Produccio neta</th>
+                                        <th>Produccio disponible</th>
+                                        <th>Demanda electrica</th>
+                                        <th>Consum gasolina</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var consum in Model.consumGasolinaSupCen)
+                                {
+                                    <tr>
+                                        <td>@consum.Data</td>
+                                        <td>@consum.CDEEBC_ProdNeta</td>
+                                        <td>@consum.CDEEBC_ProdDisp</td>
+                                        <td>@consum.CDEEBC_DemandaElectr</td>
+                                        <td>@consum.CCAC_GasolinaAuto</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                   `;
+                    break;
+            case "MitjanaProduccioNeta":
+                   informeFields.innerHTML = `
+                        <table class"table">
+                            <thead>
+                                <tr>
+                                    <th>Municipi</th>
+                                    <th>Mitja</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        @foreach (var consum in Model.mitjanaProduccNeta)
+                        {
+                            <tr>
+                                <td>@consum.Key</td>
+                                <td>@consum.Value</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    `;
+                    break;
+
+            case "DemandaSuperior4000" :
+                infromeFields.innerHTML = `
+                    <table class"table">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Produccio neta</th>
+                                        <th>Produccio disponible</th>
+                                        <th>Demanda electrica</th>
+                                        <th>Consum gasolina</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var consum in Model.demandaEleSupCuatr)
+                                {
+                                        <tr>
+                                            <td>@consum.Data</td>
+                                            <td>@consum.CDEEBC_ProdNeta</td>
+                                            <td>@consum.CDEEBC_ProdDisp</td>
+                                            <td>@consum.CDEEBC_DemandaElectr</td>
+                                            <td>@consum.CCAC_GasolinaAuto</td>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                    `;
+                    break;
+        }});
+    </script>
+}
