@@ -57,16 +57,16 @@ Type
 
 | nom | que fa | input | resultat esperat | resultat obtingut |
 |-------|--------|----------|-------------|-----------------------|
-| CalcEnergiaSolarValueNega | calcula l'energia depenen del tipus | Value: -1, Rati: 1, Type: "Solar" | -1 | - |
-| CalcEnergiaSolarRatiNega | calcula l'energia depenen del tipus | Value: 1, Rati: -1, Type: "Solar" | -1 | - |
-| CalcEnergiaSolarValueDecimal | calcula l'energia depenen del tipus | Value: 2.2, Rati: 1, Type: "Solar" | 2.2 | - |
-| CalcEnergiaEolicaValueNega | calcula l'energia depenen del tipus | Value: -1, Rati: 1, Type: "Eolica" | -1 | - |
-| CalcEnergiaEolicaRatiNega | calcula l'energia depenen del tipus | Value: 1, Rati: -1, Type: "Eolica" | -1 | - |
-| CalcEnergiaEolicaValueDecimal | calcula l'energia depenen del tipus | Value: 2.2, Rati: 1, Type: "Eolica" | 2.2 | - |
-| CalcEnergiaHidroelectricaValueNega | calcula l'energia depenen del tipus | Value: -1, Rati: 1, Type: "Hidroelectrica" | -9.8 | - |
-| CalcEnergiaHidroelectricaRatiNega | calcula l'energia depenen del tipus | Value: 1, Rati: -1, Type: "Hidroelectrica" | -9.8 | - |
-| CalcEnergiaHidroelectricaValueDecimal | calcula l'energia depenen del tipus | Value: 2.2, Rati: 1, Type: "Hidroelectrica" | 21.56 | - |
-| CalcEnergiaOthers | calcula l'energia depenen del tipus | Value: 1, Rati: 1, Type: "other" | -1 | - |
+| CalcEnergiaSolarValueNega | calcula l'energia depenen del tipus | Value: -1, Rati: 1, Type: "Solar" | -1 | -1 |
+| CalcEnergiaSolarRatiNega | calcula l'energia depenen del tipus | Value: 1, Rati: -1, Type: "Solar" | -1 | -1 |
+| CalcEnergiaSolarValueDecimal | calcula l'energia depenen del tipus | Value: 2.2, Rati: 1, Type: "Solar" | 2.2 | 2.2 |
+| CalcEnergiaEolicaValueNega | calcula l'energia depenen del tipus | Value: -1, Rati: 1, Type: "Eolica" | -1 | -1 |
+| CalcEnergiaEolicaRatiNega | calcula l'energia depenen del tipus | Value: 1, Rati: -1, Type: "Eolica" | -1 | -1 |
+| CalcEnergiaEolicaValueDecimal | calcula l'energia depenen del tipus | Value: 2.2, Rati: 1, Type: "Eolica" | 10.648 | 10.648000000000003 |
+| CalcEnergiaHidroelectricaValueNega | calcula l'energia depenen del tipus | Value: -1, Rati: 1, Type: "Hidroelectrica" | -9.8 | -9.8 |
+| CalcEnergiaHidroelectricaRatiNega | calcula l'energia depenen del tipus | Value: 1, Rati: -1, Type: "Hidroelectrica" | -9.8 | -9.8 |
+| CalcEnergiaHidroelectricaValueDecimal | calcula l'energia depenen del tipus | Value: 2.2, Rati: 1, Type: "Hidroelectrica" | 21.56 | 21.560000000001 |
+| CalcEnergiaOthers | calcula l'energia depenen del tipus | Value: 1, Rati: 1, Type: "other" | -1 | -1 |
 
 ## ConfParametres
 
