@@ -1,24 +1,23 @@
-html {
-  font-size: 14px;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
 html {
+  font-size: 14px;
   position: relative;
   min-height: 100%;
+  background: linear-gradient(to right, #0d1b2a, #1b263b);
 }
 
 body {
-  margin-bottom: 60px;
+    
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #0d1b2a, #1b263b);
+    color: #e0f7fa;
+    margin: 0;
+    padding: 0;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +27,184 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*header*/
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #0d1b2a, #1b263b);
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #00ffaa;
+    border-bottom: 3px solid #00ffaa;
+}
+.nav-link{
+    color: white;
+}
+nav {
+    display: flex;
+    background: linear-gradient(to right, #0d1b2a, #1b263b);
+    justify-content: center;
+    padding: 10px;
+   
+    box-shadow: 0 0 8px #00aaff;
+}
+ul{
+    color:white;
+}
+il{
+    color:white;
+}
+a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+     background: #00ffaa;
+     color: #000;
+     box-shadow: 0 0 10px #00ffaa;
+}
+p{
+    color: white;
+}
+.homeImage{
+    width: 50%;
+    padding-bottom: 70px;
+}
+.image{
+    width: 100px;
+    padding: 10px;
+}
+
+/* tabloes */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #00aaff;
+}
+
+thead {
+    background: #00ffaa;
+    color: black;
+    text-transform: uppercase;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/*button*/
+
+.botonFinal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+button {
+    background: #00aaff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00aaff;
+    padding: 20px;
+}
+
+    button:hover {
+        background: #00ffaa;
+        color: black;
+        box-shadow: 0 0 15px #00ffaa;
+    }
+
+.btn-futurista {
+    background: linear-gradient(45deg, #00e6e6, #00ff99); 
+    color: #0d1b2a;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px #00e6e6, 0 0 40px #00ff99; 
+    outline: none;
+}
+
+.btn-futurista:hover {
+    background: linear-gradient(45deg, #00ff99, #00e6e6);
+    box-shadow: 0 0 20px #00ff99, 0 0 60px #00e6e6;
+    transform: scale(1.1);
+}
+
+.btn-futurista:active {
+     transform: scale(0.95);
+     box-shadow: 0 0 5px #00e6e6, 0 0 20px #00ff99;
+}
+
+/*selector*/
+.selector-futurista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 11px;
+    background: transparent;
+    color: #00ffcc;
+    font-size: 18px;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+    outline: none;
+    box-shadow: 0 0 10px #00ffcc, 0 0 40px #00ffcc;
+}
+.selectDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
