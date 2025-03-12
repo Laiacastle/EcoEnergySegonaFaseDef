@@ -4,9 +4,9 @@
 }
 <h1>Llista de consums</h1>
 
-<div class="normal-group">
+<div class="normal-group, selectDiv">
     <label for="Informes">Informes</label>
-    <select  id="Informe">
+	<select id="Informe" class="selector-futurista">
         <option value="">Selecciona quines dades vols veure</option>
         <option value="10MunicipisMesAigua">Llistat de 10 municipis amb mes consum d'aigua</option>
         <option value="ConsumMitjaAigua">Consum mitja d'aigua per comarca</option>
@@ -16,9 +16,9 @@
 </div>
 <div id="informeFields"></div>
 
-
-<a asp-page="AddConsume" class="btn btn-primary">Afegir nou consum</a>
-
+<div class="botonFinal">
+    <a asp-page="AddConsume" class="btn btn-primary, btn-futurista">Afegir nou consum</a>
+</div>
 @section Scripts {
         <partial name="_ValidationScriptsPartial" />
         <script>
@@ -28,11 +28,12 @@
                 switch (this.value) {
             case "10MunicipisMesAigua":
                         informeFields.innerHTML = `
-                            <table class"table">
+                            <table>
                                     <thead>
                                         <tr>
                                             <th>Any</th>
                                             <th>Codi de distrit</th>
+                                            <th>District</th>
                                             <th>Població</th>
                                             <th>Domini de xarxa</th>
                                             <th>Activitats económiques i Fonts propies</th>
@@ -61,7 +62,7 @@
                         break;
             case "ConsumMitjaAigua":
                        informeFields.innerHTML = `
-                        <table class"table">
+                        <table >
                                 <thead>
                                     <tr>
                                         <th>Municipi</th>
@@ -82,11 +83,12 @@
                         break;
             case "DeteccioValorsSuspitosos":
                       informeFields.innerHTML = `
-                           <table class"table">
+                           <table>
                                    <thead>
                                        <tr>
                                            <th>Any</th>
                                            <th>Codi de distrit</th>
+                                       <th>District</th>
                                            <th>Població</th>
                                            <th>Domini de xarxa</th>
                                            <th>Activitats económiques i Fonts propies</th>
@@ -115,7 +117,7 @@
                         break;
                 case "DetectarAumentAigua" :
                     infromeFields.innerHTML = `
-                    <table class"table">
+                    <table >
                                <thead>
                                    <tr>
                                        <th>Municipis en Aument</th>
