@@ -44,6 +44,10 @@ namespace EcoEnergySegonaFaseDef.Classes
             _contador++;
         }
 
+        public SistemaHidroelectrica(double cabalAigua)
+        {
+            CabalAigua = cabalAigua;
+        }
         public DateTime GetDate => this.Date;
 
         public override List<string> ToList()

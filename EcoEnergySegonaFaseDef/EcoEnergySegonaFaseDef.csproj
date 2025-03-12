@@ -18,4 +18,8 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="9.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UnitTests\" />
+  </ItemGroup>
+
 </Project>

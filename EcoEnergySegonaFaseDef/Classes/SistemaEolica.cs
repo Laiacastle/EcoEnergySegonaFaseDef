@@ -45,6 +45,11 @@ namespace EcoEnergySegonaFaseDef.Classes
             _contador++;
         }
 
+        public SistemaEolica(double velocitatVent)
+        {
+            VelocitatVent = velocitatVent;
+        }
+
         public DateTime GetDate => this.Date;
 
         public override List<string> ToList()
