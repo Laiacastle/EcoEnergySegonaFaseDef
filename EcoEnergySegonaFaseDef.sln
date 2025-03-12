@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoEnergySegonaFaseDef", "EcoEnergySegonaFaseDef\EcoEnergySegonaFaseDef.csproj", "{175384AA-1362-42F7-96E9-59894ED506D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{C2074244-B85B-48E1-8C29-1239307DBFA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{175384AA-1362-42F7-96E9-59894ED506D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{175384AA-1362-42F7-96E9-59894ED506D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{175384AA-1362-42F7-96E9-59894ED506D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2074244-B85B-48E1-8C29-1239307DBFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2074244-B85B-48E1-8C29-1239307DBFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2074244-B85B-48E1-8C29-1239307DBFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2074244-B85B-48E1-8C29-1239307DBFA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

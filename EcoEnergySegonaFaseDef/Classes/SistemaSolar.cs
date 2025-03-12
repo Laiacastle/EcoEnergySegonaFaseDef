@@ -45,6 +45,10 @@ namespace EcoEnergySegonaFaseDef.Classes
             HoresSol = horesSol;
             _contador++;
         }
+        public SistemaSolar(double horesSol)
+        {
+            HoresSol = horesSol;
+        }
         public override List<string> ToList()
         {
 
