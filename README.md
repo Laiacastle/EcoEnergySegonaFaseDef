@@ -1,5 +1,9 @@
 # EcoEnergy Solutions Segona Fase
 
+# Link document
+
+https://docs.google.com/document/d/1tYSzCPyqMxCKeKUwUl7GBjLZ8LBgJEZ-ZJritEIiO7A/edit?usp=sharing
+
 # Solució del sistema
 
 __Solució proposada__
