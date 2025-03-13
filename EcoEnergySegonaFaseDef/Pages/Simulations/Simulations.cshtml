@@ -7,33 +7,40 @@
 
 <h1>Llista de simulacions</h1>
 
-<table >
-    <thead>
-        <tr>
-            <th>Hores de sol / Velocitat del vent / cabal d'aigua</th>
-            <th>Rati</th>
-            <th>Preu</th>
-            <th>Cost</th>
-            <th>Data</th>
-            <th>Tipus de Simulació</th>
-            <th>Result</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var energia in Model.sistems)
-        {
+@if (Model.sistems.Count == 0)
+{
+    <div class="alert alert-warning">No records found.</div>
+}
+else{
+    <table >
+        <thead>
             <tr>
-                <td>@energia.Value</td>
-                <td>@energia.Rati</td>
-                <td>@energia.Preu</td>
-                <td>@energia.Cost</td>
-                <td>@energia.GetDate</td>
-                <td>@energia.GetType()</td>
-                <td>@energia.CalcEnergia()</td>
+                <th>Hores de sol / Velocitat del vent / cabal d'aigua</th>
+                <th>Rati</th>
+                <th>Preu</th>
+                <th>Cost</th>
+                <th>Data</th>
+                <th>Tipus de Simulació</th>
+                <th>Result</th>
             </tr>
-        }
-    </tbody>
-</table>
-<div class="botonFinal">
-    <a asp-page="AddSimulation" class="btn btn-primary, btn-futurista">Afegir nova simulació</a>
-</div>
+        </thead>
+        <tbody>
+            @foreach (var energia in Model.sistems)
+            {
+                <tr>
+                    <td>@energia.Value</td>
+                    <td>@energia.Rati</td>
+                    <td>@energia.Preu</td>
+                    <td>@energia.Cost</td>
+                    <td>@energia.GetDate</td>
+                    <td>@energia.GetType()</td>
+                    <td>@energia.CalcEnergia()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="botonFinal">
+        <a asp-page="AddSimulation" class="btn btn-primary, btn-futurista">Afegir nova simulació</a>
+    </div>
+}
+

@@ -13,9 +13,7 @@ namespace EcoEnergySegonaFaseDef.Pages.WaterConsumption
     {
         [BindProperty]
         public ConsumAigua consum { get; set; }
-        public void OnGet()
-        {
-        }
+        
         public IActionResult OnPost()
         {
             string filePath = "./Pages/Files/consum_aigua_cat_per_comarques.xml";

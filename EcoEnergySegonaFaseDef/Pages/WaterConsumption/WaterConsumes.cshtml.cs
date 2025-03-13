@@ -12,12 +12,7 @@ namespace EcoEnergySegonaFaseDef.Pages.WaterConsumption
 {
     public class WaterConsumesModel : PageModel
     {
-        [XmlRoot("Consums")]
-        public class Consums
-        {
-            [XmlElement("consum")]
-            public List<ConsumAigua> ConsumList { get; set; } = new List<ConsumAigua>();
-        }
+           
         public List<ConsumAigua> consums { get; set; } = new List<ConsumAigua>();
         public List<ConsumAigua> deuMunicipis = new List<ConsumAigua>();
         public Dictionary<string?, double> consumMitja { get; set; } = new Dictionary<string?, double>();

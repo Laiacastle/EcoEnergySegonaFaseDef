@@ -9,7 +9,7 @@ namespace EcoEnergySegonaFaseDef.Classes
 {
     public class SistemaEolica : SistemaEnergia
     {
-        private static int _contador = 0;
+        
         public double VelocitatVent { get; set; }
         public override double CalcEnergia() => Math.Round(Math.Pow(VelocitatVent, 3) * Rati);
         public override void MostraInforme()
@@ -29,12 +29,12 @@ namespace EcoEnergySegonaFaseDef.Classes
             Type = Sistemes.Eolica;
             VelocitatVent = velocitatVent;
             Rati = rati;
-            _contador++;
+            
         }
         public SistemaEolica() {
             Date = DateTime.Now;
             Type = Sistemes.Eolica;
-            _contador++;
+           
         }
         public SistemaEolica(double velocitatVent, double rati, DateTime data)
         {
@@ -42,7 +42,7 @@ namespace EcoEnergySegonaFaseDef.Classes
             Type = Sistemes.Eolica;
             VelocitatVent = velocitatVent;
             Rati= rati;
-            _contador++;
+           
         }
 
         public SistemaEolica(double velocitatVent)

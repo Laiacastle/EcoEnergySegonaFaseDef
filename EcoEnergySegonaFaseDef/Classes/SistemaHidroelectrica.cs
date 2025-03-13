@@ -9,7 +9,7 @@ namespace EcoEnergySegonaFaseDef.Classes
 {
     public class SistemaHidroelectrica : SistemaEnergia
     {
-        private static int _contador = 0;
+       
         public double CabalAigua { get; set; }
         public override double CalcEnergia() => Math.Round(CabalAigua * 9.8 * Rati);
         public override void MostraInforme()
@@ -28,7 +28,7 @@ namespace EcoEnergySegonaFaseDef.Classes
             Type = Sistemes.Hidroelectrica;
             CabalAigua = cabalAigua;
             Rati = rati;
-            _contador++;
+         
         }
         public SistemaHidroelectrica(double cabalAigua, double rati, DateTime data)
         {
@@ -36,12 +36,12 @@ namespace EcoEnergySegonaFaseDef.Classes
             Type = Sistemes.Hidroelectrica;
             Rati = rati;
             CabalAigua = cabalAigua;
-            _contador++;
+        
         }
         public SistemaHidroelectrica() {
             Date = DateTime.Now;
             Type = Sistemes.Hidroelectrica;
-            _contador++;
+        
         }
 
         public SistemaHidroelectrica(double cabalAigua)

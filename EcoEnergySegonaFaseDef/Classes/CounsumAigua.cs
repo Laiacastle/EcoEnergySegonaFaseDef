@@ -4,7 +4,7 @@ namespace EcoEnergySegonaFaseDef.Classes
 {
     public class ConsumAigua
     {
-        private int _count = 0;
+        
         public int Year {get;set ;}
         public int CodeDistrict { get;set; }
         public string? District { get; set; }
@@ -24,9 +24,9 @@ namespace EcoEnergySegonaFaseDef.Classes
             FontsAndEcoActivities = fontsAndEcoActivities;
             Total = total;
             Consumption = consumption;
-            _count++;
+          
         }
-        public ConsumAigua() { _count++; }
-        public int GetCount => _count;
+        public ConsumAigua() {  }
+       
     }
 }

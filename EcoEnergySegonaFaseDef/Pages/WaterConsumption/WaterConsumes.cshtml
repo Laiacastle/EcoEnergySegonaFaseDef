@@ -3,21 +3,27 @@
 @{
 }
 <h1>Llista de consums</h1>
+@if (Model.consums.Count == 0)
+{
+    <div class="alert alert-warning">No records found.</div>
+}
+else{
+    <div class="normal-group, selectDiv">
+	    <select id="Informe" class="selector-futurista">
+            <option value="">Selecciona quines dades vols veure</option>
+            <option value="10MunicipisMesAigua">Llistat de 10 municipis amb mes consum d'aigua</option>
+            <option value="ConsumMitjaAigua">Consum mitja d'aigua per comarca</option>
+            <option value="DeteccioValorsSuspitosos">Deteccio de valors suspitosos exessivament grans</option>
+            <option value="DetectarAumentAigua">Deteccio d'augment del consum</option>
+        </select>
+    </div>
+    <div id="informeFields"></div>
 
-<div class="normal-group, selectDiv">
-	<select id="Informe" class="selector-futurista">
-        <option value="">Selecciona quines dades vols veure</option>
-        <option value="10MunicipisMesAigua">Llistat de 10 municipis amb mes consum d'aigua</option>
-        <option value="ConsumMitjaAigua">Consum mitja d'aigua per comarca</option>
-        <option value="DeteccioValorsSuspitosos">Deteccio de valors suspitosos exessivament grans</option>
-        <option value="DetectarAumentAigua">Deteccio d'augment del consum</option>
-    </select>
-</div>
-<div id="informeFields"></div>
+    <div class="botonFinal">
+        <a asp-page="AddConsume" class="btn btn-primary, btn-futurista">Afegir nou consum</a>
+    </div>
+}
 
-<div class="botonFinal">
-    <a asp-page="AddConsume" class="btn btn-primary, btn-futurista">Afegir nou consum</a>
-</div>
 @section Scripts {
         <partial name="_ValidationScriptsPartial" />
         <script>

@@ -16,9 +16,7 @@ namespace EcoEnergySegonaFaseDef.Pages.Simulations
         [BindProperty]
         public SistemaHidroelectrica hidro { get; set; }
 
-        public void OnGet()
-        {
-        }
+        
         public IActionResult OnPost()
         {
             string sistemLine;

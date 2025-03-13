@@ -13,9 +13,7 @@ namespace EcoEnergySegonaFaseDef.Pages.EnergyIndicators
     {
         [BindProperty]
         public IndicadorsEnergetics indicator {get;set;}
-        public void OnGet()
-        {
-        }
+        
         public IActionResult OnPost()
         {
 
@@ -24,7 +22,7 @@ namespace EcoEnergySegonaFaseDef.Pages.EnergyIndicators
             var json = System.IO.File.ReadAllText(filePath);
             List<IndicadorsEnergetics> indi = System.Text.Json.JsonSerializer.Deserialize<List<IndicadorsEnergetics>>(json);
             indi.Add(indicator);
-            var options = new JsonSerializerOptions { WriteIndented = true };
+           
             string jsonActualizado = JsonConvert.SerializeObject(indi, Newtonsoft.Json.Formatting.Indented);
             System.IO.File.WriteAllText(filePath, jsonActualizado);
             return RedirectToPage("EnergyIndicators");

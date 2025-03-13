@@ -4,20 +4,28 @@
 }
 <h1>Llista d'indicadors energetics</h1>
 
-<div class="normal-group, selectDiv">
-    <select id="Informe" class="selector-futurista">
-        <option value="">Selecciona quines dades vols veure</option>
-        <option value="ProduccioSuperior3000">Registres amb produccio neta superior a 3000</option>
-        <option value="ConsumGasolinaSuperior100">Registres amb consum de gasolina superior a 100</option>
-        <option value="MitjanaProduccioNeta">Mitjana de produccio neta pero any</option>
-        <option value="DemandaSuperior4000">Registres amb demanda electrica superior a 4000</option>
-    </select>
-</div>
+@if (Model.indicators.Count == 0)
+{
+    <div class="alert alert-warning">No records found.</div>
+}
+else{
+    <div class="normal-group, selectDiv">
+        <select id="Informe" class="selector-futurista">
+            <option value="">Selecciona quines dades vols veure</option>
+            <option value="ProduccioSuperior3000">Registres amb produccio neta superior a 3000</option>
+            <option value="ConsumGasolinaSuperior100">Registres amb consum de gasolina superior a 100</option>
+            <option value="MitjanaProduccioNeta">Mitjana de produccio neta pero any</option>
+            <option value="DemandaSuperior4000">Registres amb demanda electrica superior a 4000</option>
+        </select>
+    </div>
 
-<div id="informeFields" style="overflow-x:auto;"></div>
-<div class="botonFinal">
-    <a asp-page="AddIndicator" class="btn btn-primary, btn-futurista">Afegir nou indicador</a>
-</div>
+    <div id="informeFields" style="overflow-x:auto;"></div>
+    <div class="botonFinal">
+        <a asp-page="AddIndicator" class="btn btn-primary, btn-futurista">Afegir nou indicador</a>
+    </div>
+}
+
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>

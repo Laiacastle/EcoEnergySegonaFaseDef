@@ -9,7 +9,7 @@ namespace EcoEnergySegonaFaseDef.Classes
 {
     public class SistemaSolar : SistemaEnergia
     {
-        private static int _contador = 0;
+        
         public double HoresSol { get; set; }
         public override double CalcEnergia() => Math.Round(HoresSol * Rati);
         public override void MostraInforme()
@@ -24,7 +24,7 @@ namespace EcoEnergySegonaFaseDef.Classes
         {
             Date = DateTime.Now;
             Type = Sistemes.Solar;
-            _contador++;
+     
         }
         public SistemaSolar(double horesSol, double rati, double preu, double cost)
         {
@@ -34,7 +34,7 @@ namespace EcoEnergySegonaFaseDef.Classes
             Type = Sistemes.Solar;
             HoresSol = horesSol;
             Rati = rati;
-            _contador++;
+   
         }
         public DateTime GetDate => this.Date;
         public SistemaSolar(double horesSol, double rati, DateTime data)
@@ -43,8 +43,7 @@ namespace EcoEnergySegonaFaseDef.Classes
             Rati= rati;
             Type = Sistemes.Solar;
             HoresSol = horesSol;
-            _contador++;
-        }
+       }
         public SistemaSolar(double horesSol)
         {
             HoresSol = horesSol;

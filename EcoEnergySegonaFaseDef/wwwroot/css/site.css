@@ -63,9 +63,7 @@ nav {
 ul{
     color:white;
 }
-il{
-    color:white;
-}
+
 a {
     color: white;
     text-decoration: none;
@@ -124,7 +122,6 @@ tr:nth-child(even) {
     display: flex;
     justify-content: center;
     align-items: center;
-    align-items: center;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -142,7 +139,6 @@ button {
     border-radius: 15px;
     transition: 0.3s;
     box-shadow: 0 0 10px #00aaff;
-    padding: 20px;
 }
 
     button:hover {
